@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Users</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+      body{
+          background-color:#002f2f
+      }
+.container {
+    width:90%;
+    margin: auto ;
+    
+    
+}
+h1{font-style:italic;
+    color: #e6e2af;
+    font-size:40px;
+    font-family:verdana;
+    text-align: center;
+    padding-top:5%;
+    text-shadow: 5px 5px 5px #000;
+}
+
+  a{
+      text-decoration:none;
+      font-style:italic;
+      font-family:verdana;
+      margin-right:20px;
+      background-color: #e6e2af;
+      color:#002f2f;
+      padding:8px;
+      border-radius:5px;
+        box-shadow: 5px 5px 5px #000;
+      
+  }
+    a:hover{ background-color:#f5f3e0
+    }
+
+   h1{
+	  text-align:center;
+  }
+  
+  *{
+      padding: 0;
+      border-spacing: 0;
+
+  }
+
+  table{
+      padding-top:20px;
+     width:90%;
+      font-family:verdana;
+      margin:auto;
+      font-weight:bolder;
+      font-size:16px
+  }
+  td,th{
+      text-align:center;
+      border:2px solid #e6e2af;
+      padding: 15px
+  }
+      th{text-shadow: 5px 5px 5px #000;font-family:verdana;font-size:30px;font-weight:bolder;color:#e6e2af;background-color:#a7a37e;padding-top:20px;
+      padding-bottom:20px}
+      td{font-size:20px}
+
+  </style>
+</head>
+
+<body>
+<h1>User Panel</h1>
+
+ <?php
+ if($success){  ?>
+  <div  style="color:green"><?php echo $success ?></div>
+
+<?php  } ?>
+
+
+
+ <a href="?action=logout" style="float:right;">Logout</a>
+<table>
+<tr>
+<th>#</th>
+<th>User Name</th>
+<th>E-mail</th>
+
+</tr>
+<?php  if($total_users==0){ ?>
+  <tr>
+    <td colspan="4"> there is no user until now</td>
+  </tr>
+
+<?php }else{
+  foreach($users as $user){  ?>
+   <tr>
+   <td style="color:#e6e2af;text-shadow: 5px 5px 5px #000;"><?php echo $user['user_id']; ?></td>
+   <td style="color:#e6e2af;text-shadow: 5px 5px 5px #000;"><?php echo $user['username']; ?></td>
+   <td style="color:#e6e2af;text-shadow: 5px 5px 5px #000;"><?php echo $user['email']; ?></td>
+
+   
+   </tr>
+
+<?php } ?> <!-- end of foreach loop  -->
+
+<?php } ?> <!-- end of else  -->
+
+</table>
+
+</body>
+</html>
