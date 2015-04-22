@@ -11,6 +11,7 @@ require_once 'includes/config.php';
 // AUTO CLASSES LOADER
 function __autoload($class_name) {
     $class = CLASSES_PATH.$class_name.'class.php';
+    $class = strtolower($class);    
     if(is_file($class))
         require_once($class);
 
