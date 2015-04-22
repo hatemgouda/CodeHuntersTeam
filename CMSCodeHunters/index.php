@@ -1,10 +1,20 @@
 <?php
  
 session_start();
-// Include  classes and config
-require_once 'classes/databaseclass.php';
-require_once 'classes/usersclass.php';
+
 require_once 'includes/config.php';
+
+// Include  classes and config
+#require_once 'classes/databaseclass.php';
+#require_once 'classes/usersclass.php';
+
+// AUTO CLASSES LOADER
+function __autoload($class_name) {
+    $class = CLASSES_PATH.$class_name.'class.php';
+    if(is_file($class))
+        require_once($class);
+
+}
 
 
 
